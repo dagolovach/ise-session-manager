@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        h4 span {
+          color: #007bff;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+{%if mac_check %}
+
+        <div class="container-fluid pt-3">
+
+                <div class="row pt-5">
+                    <div class="col"></div>
+                    <div class="col">
+                        <form action="{{  url_for('main') }}" method="post">
+                            <button class="btn btn-outline-primary">Main</button>
+                        </form>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <dev class="row"></dev>
+                <dev class="row">
+                    <dev class="col"></dev>
+                    <dev class="col pt-5">
+
+                        <h4> Do you want to update <span>{{mac}}</span> in the ISE?</h4>
+                        <p></p>
+                        <dev class="row"></dev>
+                        <h4>Current group: <span>{{ endpoint_group_id }}</span><h4>
+                            <dev class="row pt-5"></dev>
+                        <h5>Please select the ISE group:</h5>
+                            <dev class="row"></dev>
+                        <p></p>
+                            <form action="{{ url_for('update_ise', mac=mac ) }}" method="post">
+
+                                <div class="form-group">
+                                <select class="form-control" name="ise_group_id">
+
+                                    {% for ise_group in ise_groups %}
+                                         <option value="{{ ise_group }}"> {{ise_groups[ise_group]}} </option>
+                                    {% endfor %}
+
+                                </select>
+                                </div>
+
+                                <div class="form-group">
+                                <button class="btn btn-primary">Update in ISE</button>
+                                </div>
+
+                            </form>
+
+                    </dev>
+                    <dev class="col"></dev>
+
+                </dev>
+                <dev class="row"></dev>
+        </div>
+
+{% else %}
+
+        <div class="container-fluid pt-3">
+
+                <div class="row pt-5">
+                    <div class="col"></div>
+                    <div class="col">
+                        <form action="{{  url_for('main') }}" method="post">
+                            <button class="btn btn-outline-primary">Main</button>
+                        </form>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <dev class="row"></dev>
+                <dev class="row">
+                    <dev class="col"></dev>
+                    <dev class="col pt-5">
+                        <h4> Format Error. <p></p> Please check MAC address format: <span>{{mac}}</span></h4>
+                    </dev>
+                    <dev class="col"></dev>
+
+                </dev>
+                <dev class="row"></dev>
+        </div>
+
+{% endif %}
+
+</body>
+</html>

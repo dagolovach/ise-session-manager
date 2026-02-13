@@ -1,0 +1,23 @@
+# Flask Web Framework
+Flask>=3.0.0
+Flask-Session>=0.6.0
+Werkzeug>=3.0.0
+
+# Network Automation
+netmiko>=4.3.0
+paramiko>=3.4.0
+
+# HTTP Requests
+requests>=2.31.0
+urllib3>=2.1.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# Security
+cryptography>=42.0.0
+
+# Development and Code Quality (optional, for development)
+# black>=24.0.0
+# pylint>=3.0.0
+# autopep8>=2.0.0
