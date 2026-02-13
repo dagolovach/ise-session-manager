@@ -28,28 +28,31 @@ This project follows a Code of Conduct that all contributors are expected to adh
 1. Fork the repository on GitHub
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/webapp-ise-switch-sessions.git
-   cd webapp-ise-switch-sessions
+   git clone https://github.com/YOUR_USERNAME/ise-session-manager.git
+   cd ise-session-manager
    ```
 3. Add the upstream repository:
    ```bash
-   git remote add upstream https://github.com/dagolovach/webapp-ise-switch-sessions.git
+   git remote add upstream https://github.com/dagolovach/ise-session-manager.git
    ```
 
 ## Development Setup
 
 1. Create a virtual environment:
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 2. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
 
 3. Install development dependencies (optional):
+
    ```bash
    pip install black pylint autopep8
    ```
@@ -75,6 +78,7 @@ We welcome various types of contributions:
 ### Development Workflow
 
 1. **Create a Branch**:
+
    ```bash
    git checkout -b feature/your-feature-name
    # or
@@ -93,6 +97,7 @@ We welcome various types of contributions:
    - Add new tests if applicable
 
 4. **Commit Your Changes**:
+
    ```bash
    git add .
    git commit -m "Brief description of your changes"
@@ -105,12 +110,14 @@ We welcome various types of contributions:
    - `refactor: Improve code quality in module A`
 
 5. **Stay Up to Date**:
+
    ```bash
    git fetch upstream
    git rebase upstream/master
    ```
 
 6. **Push to Your Fork**:
+
    ```bash
    git push origin feature/your-feature-name
    ```

@@ -1,6 +1,6 @@
 # ISE Switch Session Manager
 
-[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/dagolovach/webapp-ise-switch-sessions)
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/dagolovach/ise-session-manager)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/flask-3.0+-green.svg)](https://flask.palletsprojects.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -50,19 +50,21 @@ A Flask web application for managing Cisco ISE (Identity Services Engine) endpoi
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/dagolovach/webapp-ise-switch-sessions.git
-cd webapp-ise-switch-sessions
+git clone https://github.com/dagolovach/ise-session-manager.git
+cd ise-session-manager
 ```
 
 ### 2. Create a Virtual Environment
 
 **On Linux/macOS:**
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 **On Windows:**
+
 ```cmd
 python -m venv venv
 venv\Scripts\activate
@@ -170,7 +172,7 @@ gunicorn -w 4 -b 0.0.0.0:5000 application:app
 ## Project Structure
 
 ```
-webapp-ise-switch-sessions/
+ise-session-manager
 ├── application.py              # Flask web application and routes
 ├── check_access_sessions.py    # Switch session collection logic
 ├── ise_api.py                  # ISE API integration
@@ -193,31 +195,38 @@ webapp-ise-switch-sessions/
 ### Module: `ise_api.py`
 
 #### `get_group_id() -> Dict[str, str]`
+
 Retrieves all endpoint groups from ISE.
 
 **Returns**: Dictionary mapping group IDs to group names
 
 #### `get_endpoint_group_id(mac: str) -> Optional[str]`
+
 Gets the endpoint group ID for a specific MAC address.
 
 **Parameters**:
+
 - `mac`: MAC address in any common format
 
 **Returns**: Group ID string or None if not found
 
 #### `update_endpoint_group(mac: str, ise_group_id: str) -> requests.Response`
+
 Updates the endpoint group assignment for a MAC address.
 
 **Parameters**:
+
 - `mac`: MAC address to update
 - `ise_group_id`: New endpoint group ID
 
 **Returns**: HTTP response object
 
 #### `mac_normalization(current_mac_address: str, symbol: str = ".") -> str`
+
 Normalizes MAC address to a specific format.
 
 **Parameters**:
+
 - `current_mac_address`: MAC in any format
 - `symbol`: Separator to use (default: ".")
 
@@ -226,9 +235,11 @@ Normalizes MAC address to a specific format.
 ### Module: `check_access_sessions.py`
 
 #### `class Device`
+
 Represents a Cisco switch for session collection.
 
 **Methods**:
+
 - `init_connection_ssh()`: Establish SSH connection
 - `collect_active_sessions()`: Collect all active sessions
 - `collect_active_sessions_details()`: Get details for failed sessions
@@ -236,9 +247,11 @@ Represents a Cisco switch for session collection.
 - `get_result()`: Return collected session data
 
 #### `main(current_ip_address: str) -> Dict`
+
 Main function to orchestrate session collection.
 
 **Parameters**:
+
 - `current_ip_address`: Switch IP address
 
 **Returns**: Dictionary of failed/unauthorized sessions
@@ -274,6 +287,7 @@ Main function to orchestrate session collection.
 ### Code Quality
 
 The codebase follows Python best practices:
+
 - Comprehensive docstrings for all functions and classes
 - Type hints for better code clarity
 - PEP 8 style guidelines
@@ -292,16 +306,19 @@ python check_access_sessions.py <switch_ip_address>
 ### Common Issues
 
 **SSH Connection Failures**:
+
 - Verify network connectivity: `ping <switch_ip>`
 - Confirm SSH is enabled on the switch: `show ip ssh`
 - Check credentials in `.env` file
 
 **ISE API Errors**:
+
 - Ensure ERS is enabled in ISE
 - Verify ISE credentials and permissions
 - Check ISE URL format (should include port 9060)
 
 **Certificate Warnings**:
+
 - Expected for self-signed certificates
 - Consider implementing proper certificate validation for production
 
@@ -338,4 +355,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with** 💙 **by** [Dmitry Golovach](https://dmitrygolovach.com)
 
-*If you find this tool useful, please consider giving it a ⭐ on GitHub!*
+_If you find this tool useful, please consider giving it a ⭐ on GitHub!_
