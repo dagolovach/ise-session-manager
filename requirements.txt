@@ -1,6 +1,5 @@
 # Flask Web Framework
 Flask>=3.0.0
-Flask-Session>=0.6.0
 Werkzeug>=3.0.0
 
 # Network Automation

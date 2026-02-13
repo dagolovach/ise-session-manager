@@ -17,17 +17,11 @@ Routes:
 
 from typing import Dict
 from flask import Flask, render_template, request, flash
-from flask_session import Session
 import check_access_sessions
 import ise_api
 
 # Initialize Flask application
 app = Flask(__name__, static_url_path="/static")
-
-# Configure session to use filesystem (server-side sessions)
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
 
 
 @app.route("/", methods=["GET", "POST"])

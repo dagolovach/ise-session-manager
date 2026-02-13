@@ -334,9 +334,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ## Related Resources
 
-- **Blog Post**: [WebApp ISE Python Flask](https://dmitrygolovach.com/webapp-ise-python-flask/)
 - **Demo Video**: [YouTube - How it Works](https://youtu.be/xbWCEKQG22c)
-- **Related Project**: [Python and ISE Monitor Mode](https://dmitrygolovach.com/python-and-ise-monitor-mode/)
 
 ## License
 
